@@ -1,23 +1,13 @@
 const router = require('express').Router();
+const { getFoods, getFood, addFood, updateFood, deleteFood } = require('../controllers/foods');
 
-router.get('/', (req, res) => {
-  res.status(200).json({ success: true, message: 'Shows all foods' })
-})
+router.route('/')
+  .get(getFoods)
+  .post(addFood)
 
-router.get('/:id', (req, res) => {
-  res.status(200).json({ success: true, message: `Shows food ${req.params.id}` })
-})
-
-router.post('/', (req, res) => {
-  res.status(200).json({ success: true, message: 'Adds new food' })
-})
-
-router.put('/:id', (req, res) => {
-  res.status(200).json({ success: true, message: `Updates food ${req.params.id}` })
-})
-
-router.delete('/:id', (req, res) => {
-  res.status(200).json({ success: true, message: `Deletes food ${req.params.id}` })
-})
+router.route('/:id')
+  .get(getFood)
+  .put(updateFood)
+  .delete(deleteFood)
 
 module.exports = router;
