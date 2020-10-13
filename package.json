@@ -27,7 +27,8 @@
   "homepage": "https://github.com/omzi/madam-sauce#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9"
   },
   "devDependencies": {
     "colors": "^1.4.0",
