@@ -1,4 +1,5 @@
 debug.log
 node_modules
 .gitignore
+.env
 _*
