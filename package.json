@@ -1,0 +1,27 @@
+{
+  "name": "madam-sauce",
+  "version": "1.0.0",
+  "description": "Madam Sauce's mama put Back-End API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omzi/madam-sauce.git"
+  },
+  "keywords": [
+    "fastfood",
+    "restaurant",
+    "api",
+    "node",
+    "express",
+    "mongodb"
+  ],
+  "author": "Omezibe Obioha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/omzi/madam-sauce/issues"
+  },
+  "homepage": "https://github.com/omzi/madam-sauce#readme"
+}
