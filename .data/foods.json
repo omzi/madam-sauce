@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Oha soup",
+    "description": "The most complete Oha Soup meal, just like your grandmas made them.",
+    "price": 800,
+    "quantity": 6,
+    "categories": ["soup", "chicken"]
+  },
+  {
+    "name": "Ofe Nsala",
+    "description": "Want to warm your way to your in-laws’ hearts? Serve them this delicacy.",
+    "price": 1200,
+    "quantity": 10,
+    "categories": ["fish", "chicken", "soup"]
+  },
+  {
+    "name": "Bitterleaf Soup (Ofe Onugbu)",
+    "description": "Don’t let the name put you off this delicious soup. A well-prepared Bitterleaf Soup should not be bitter.",
+    "price": 750,
+    "quantity": 15,
+    "categories": ["soup"]
+  },
+  {
+    "name": "Peppered Turkey Wings",
+    "description": "Peppered Turkey Wings is one of the best side dishes to Nigerian rice dish. Great for parties too",
+    "price": 1350,
+    "quantity": 14,
+    "categories": ["chicken"]
+  },
+  {
+    "name": "Barbecue Chicken Wings",
+    "description": "If you need a great evening or picnic snack, here you go.",
+    "price": 900,
+    "quantity": 17,
+    "categories": ["chicken"]
+  },
+  {
+    "name": "Chicken Suya",
+    "description": "Take your foodventure to the next level with our special peppered suya.",
+    "price": 600,
+    "quantity": 8,
+    "categories": ["chicken"]
+  },
+  {
+    "name": "Peppered Chicken",
+    "description": "The popping red spicy upgrade for the basic Grilled Chicken. A great addition to your meals!",
+    "price": 900,
+    "quantity": 13,
+    "categories": ["chicken"]
+  },
+  {
+    "name": "Grilled Chicken",
+    "description": "A very munchy classic. Worth every dime spent on it",
+    "price": 750,
+    "quantity": 21,
+    "categories": ["chicken"]
+  }
+]
