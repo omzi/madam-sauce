@@ -28,7 +28,8 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.9"
+    "mongoose": "^5.10.9",
+    "slugify": "^1.4.5"
   },
   "devDependencies": {
     "colors": "^1.4.0",
