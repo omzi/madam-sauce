@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const FoodSchema = new mongoose.Schema({
   name: {
@@ -44,6 +45,12 @@ const FoodSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   }
+})
+
+// Create food slug from the name
+FoodSchema.pre('save', function(next) {
+  this.slug = slugify(this.name, { lower: true, remove: /[*+~.()'"!:@]/g })
+  next();
 })
 
 module.exports = mongoose.model('Food', FoodSchema)

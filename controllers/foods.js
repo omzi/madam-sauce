@@ -8,9 +8,57 @@ const Food = require('../models/Food');
  * @access  Public
  */
 exports.getFoods = asyncHandler(async (req, res, next) => {
-    const foods = await Food.find();
+    const reqQuery = { ...req.query };
 
-    res.status(200).json({ success: true, count: foods.length, data: foods })
+    // Fields to exclude from results
+    const removeFields = ['select', 'sort', 'page', 'limit']
+
+    // Loop over removeFields & delete them from reqQuery
+    removeFields.forEach(param => delete reqQuery[param]);
+
+    let queryString = JSON.stringify(reqQuery);
+    // Create Mongoose operators ($gt, $lt, etc.)
+    queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
+
+    let query = Food.find(JSON.parse(queryString));
+
+    // Select Fields
+    if (req.query.select) {
+      const fields = req.query.select.split(',').join(' ')
+      query = query.select(fields);
+    }
+
+    // Sort Fields
+    if (req.query.sort) {
+      const fields = req.query.sort.split(',').join(' ')
+      query = query.sort(fields);
+    } else {
+      query = query.sort('-name');
+    }
+
+    // Pagination
+    const page = parseInt(req.query.page, 10) || 1;
+    const limit = parseInt(req.query.limit, 10) || 10;
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+    const total = await Food.countDocuments();
+
+    query = query.skip(startIndex).limit(limit);
+
+    const foods = await query;
+
+    // Pagination result
+    const pagination = {}
+
+    if (endIndex < total) {
+      pagination.next = { page: page + 1, limit }
+    }
+
+    if (startIndex > 0) {
+      pagination.prev = { page: page - 1, limit }
+    }
+
+    res.status(200).json({ success: true, count: foods.length, pagination, data: foods })
 })
 
 /**
