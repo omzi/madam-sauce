@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
+const errorHandler = require('./middleware/error');
 const db = require('./config/db');
 
 // Load route files
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
 // Mount routers
 app.use('/api/v1/foods', foods);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5050
 
