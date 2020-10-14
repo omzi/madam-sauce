@@ -1,10 +1,18 @@
+const Food = require('../models/Food');
+
 /**
  * @desc    Get all foods
  * @route   GET /api/v1/foods
  * @access  Public
  */
-exports.getFoods = (req, res, next) => {
-  res.status(200).json({ success: true, message: 'Shows all foods' })
+exports.getFoods = async (req, res, next) => {
+  try {
+    const foods = await Food.find();
+
+    res.status(200).json({ success: true, count: foods.length, data: foods })
+  } catch (error) {
+    res.status(400).json({ success: false })
+  }
 }
 
 /**
@@ -12,8 +20,16 @@ exports.getFoods = (req, res, next) => {
  * @route   GET /api/v1/foods/:id
  * @access  Public
  */
-exports.getFood = (req, res, next) => {
-  res.status(200).json({ success: true, message: `Shows food ${req.params.id}` })
+exports.getFood = async (req, res, next) => {
+  try {
+    const food = await Food.findById(req.params.id);
+
+    if (!food) return res.status(400).json({ success: false })
+
+    res.status(200).json({ success: true, data: food })
+  } catch (error) {
+    res.status(400).json({ success: false })
+  }
 }
 
 /**
@@ -21,8 +37,14 @@ exports.getFood = (req, res, next) => {
  * @route   POST /api/v1/foods/
  * @access  Private
  */
-exports.addFood = (req, res, next) => {
-  res.status(201).json({ success: true, message: 'Adds new food' })
+exports.addFood = async (req, res, next) => {
+  try {
+    const food = await Food.create(req.body);
+
+    res.status(201).json({ success: true, data: food })
+  } catch (error) {
+    res.status(400).json({ success: false })
+  }
 }
 
 /**
@@ -30,8 +52,19 @@ exports.addFood = (req, res, next) => {
  * @route   PUT /api/v1/foods/:id
  * @access  Private
  */
-exports.updateFood = (req, res, next) => {
-  res.status(200).json({ success: true, message: `Updates food ${req.params.id}` })
+exports.updateFood = async (req, res, next) => {
+  try {
+    const food = await Food.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
+  
+    if (!food) return res.status(400).json({ success: false })
+  
+    res.status(200).json({ success: true, data: food })
+  } catch (error) {
+    res.status(400).json({ success: false })
+  }
 }
 
 /**
@@ -39,6 +72,14 @@ exports.updateFood = (req, res, next) => {
  * @route   DELETE /api/v1/foods/:id
  * @access  Private
  */
-exports.deleteFood = (req, res, next) => {
-  res.status(200).json({ success: true, message: `Deletes food ${req.params.id}` })
+exports.deleteFood = async (req, res, next) => {
+  try {
+    const food = await Food.findByIdAndDelete(req.params.id);
+  
+    if (!food) return res.status(400).json({ success: false })
+  
+    res.status(200).json({ success: true, data: {} })
+  } catch (error) {
+    res.status(400).json({ success: false })
+  }
 }
