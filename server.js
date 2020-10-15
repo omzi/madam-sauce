@@ -4,11 +4,13 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 const fileUpload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error');
 const db = require('./config/db');
 
 // Load route files
 const foods = require('./routes/foods');
+const auth = require('./routes/auth');
 
 // Load env variables
 dotenv.config({ path: './config/.env' })
@@ -18,6 +20,7 @@ db()
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
@@ -27,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Mount routers
 app.use('/api/v1/foods', foods);
+app.use('/api/v1/auth', auth);
+
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5050
