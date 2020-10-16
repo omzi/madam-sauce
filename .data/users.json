@@ -1,0 +1,142 @@
+[
+	{
+		"_id": "5d7a514b5d2c12c7449be042",
+		"name": "Omezibe Obioha",
+		"email": "yo@omzi.co",
+		"role": "user",
+		"password": "123456"
+  },
+  {
+		"_id": "5d7a514b5d2c12c7449be045",
+		"name": "Ositadimma Nwangwu",
+		"email": "o.nwangwu@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5d7a514b5d2c12c7449be043",
+		"name": "Jerry Uke",
+		"email": "j.uke@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5d7a514b5d2c12c7449be044",
+		"name": "Eliezer Ajah",
+		"email": "e.ajah@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5f8a04fc7cef9a80d697d2c5",
+		"name": "Blessing Aborchi",
+		"email": "b.aborchi@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5d7a514b5d2c12c7449be046",
+		"name": "Charles Best",
+		"email": "c.best@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+  },
+  {
+		"_id": "5f8a051d716422912d31b9d6",
+		"name": "Oga Emma",
+		"email": "c.okoye@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+  },
+  {
+		"_id": "5f8a0529295375b63ce09dc7",
+		"name": "Sauce Code",
+		"email": "onyegbuifedili@gmail.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc031",
+		"name": "Chiemezie Ohalewe",
+		"email": "c.ohalewe@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+  },
+  {
+		"_id": "5f8a054d3b5db5422841ea29",
+		"name": "Udochi Kaduru",
+		"email": "u.kaduru@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc032",
+		"name": "David Mong",
+		"email": "d.mong@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc033",
+		"name": "Goodness Okoye",
+		"email": "g.okoye@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc034",
+		"name": "Favour Harrison",
+		"email": "favour.harrison@tenece.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc035",
+		"name": "Ifunanya Nzewi",
+		"email": "i.nzewi@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc036",
+		"name": "Iheanyi Ihekweaba",
+		"email": "i.ihekweaba@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc037",
+		"name": "Jude Ojini",
+		"email": "jude.ojini@tenece.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc038",
+		"name": "Kene Ohiaeri",
+		"email": "keneohiaeri@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc039",
+		"name": "Luke Mmamel",
+		"email": "l.mmamel@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc040",
+		"name": "Nonso Oranye",
+		"email": "n.oranye@genesystechhub.com",
+		"role": "user",
+		"password": "123456"
+  },
+  {
+		"_id": "5f8a0569d0178e3bf92466ce",
+		"name": "Obinna Okoro",
+		"email": "obinna.okoro@tenece.com",
+		"role": "user",
+		"password": "123456"
+	}
+]
