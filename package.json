@@ -33,6 +33,7 @@
     "express-fileupload": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.9",
+    "nodemailer": "^6.4.14",
     "slugify": "^1.4.5"
   },
   "devDependencies": {
