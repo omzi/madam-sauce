@@ -1,0 +1,66 @@
+[
+  {
+    "_id": "5d7a514b5d2c12c7449be020",
+    "title": "Had a sweet time!",
+    "content": "It was much better than I expected. I was happy to see how clean everything was. Try out the huge selection of incredible appetizers. 8 stars of quality!",
+    "rating": "8",
+    "food": "5d713995b721c3bb38c1f5d0",
+    "user": "5c8a1d5b0190b214360dc033"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be021",
+    "title": "Great local restaurant🥰",
+    "content": "I've got a fetish for good food and this place gets me hot! The experience was heavenly as I was served a meal fit for God himself. Everything was just so yummy. I found the ambiance to be very charming. I'm definitely coming back for more!",
+    "rating": "10",
+    "food": "5d713995b721c3bb38c1f5d0",
+    "user": "5c8a1d5b0190b214360dc034"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be022",
+    "title": "Worth your while",
+    "content": "I have been here several times before. I found the ambiance to be very charming. The waitress did an excellent job. I had to take one star away because the floors were a little sticky.",
+    "rating": "7",
+    "food": "5d713a66ec8f2b88b8f830b8",
+    "user": "5c8a1d5b0190b214360dc035"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be023",
+    "title": "Not that great",
+    "content": "Meh. I felt like this place wasn't trying hard enough. The nsala soup & pounded yam I had was sublime. The ambiance gives off an earthy feel-good vibe. Some of my favorite dishes are no longer available :(",
+    "rating": "4",
+    "food": "5d713a66ec8f2b88b8f830b8",
+    "user": "5c8a1d5b0190b214360dc036"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be024",
+    "title": "Great overall experience",
+    "content": "It was much better than I expected. The food was savory and succulent😋. I was happy to see how clean everything was.",
+    "rating": "7",
+    "food": "5d725a037b292f5f8ceff787",
+    "user": "5c8a1d5b0190b214360dc037"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be025",
+    "title": "Not worth the money",
+    "content": "When I walked in, I really wasn't expecting much. The akpu was dry. The waiter was mediocre at best. There were a lot of interesting decorations on the walls. Might be back. Don't count on it",
+    "rating": "5",
+    "food": "5d725a037b292f5f8ceff787",
+    "user": "5c8a1d5b0190b214360dc038"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be026",
+    "title": "Star-struck🤩",
+    "content": "I stumbled on this undiscovered gem right in our neighboorhood. The waiter was prompt and polite. Their meals were true delicacies. I would eat here every day if I could afford it!",
+    "rating": "10",
+    "food": "5d725a1b7b292f5f8ceff788",
+    "user": "5c8a1d5b0190b214360dc039"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be027",
+    "title": "Was worth the time",
+    "content": "Decent place. Try out the huge selection of incredible appetizers. Everything was mostly decadent. I was happy to see how clean everything was.",
+    "rating": "7",
+    "food": "5d725a1b7b292f5f8ceff788",
+    "user": "5c8a1d5b0190b214360dc040"
+  }
+]
