@@ -4,16 +4,18 @@ const { getFoods, getFood, addFood, updateFood, deleteFood, foodPhotoUpload } = 
 const Food = require('../models/Food');
 const advancedResults = require('../middleware/advancedResults');
 
+const { protect, authorize } = require('../middleware/auth');
+
 router.route('/:id/photo')
-  .put(foodPhotoUpload)
+  .put(protect, authorize('admin'), foodPhotoUpload)
 
 router.route('/')
   .get(advancedResults(Food, 'reviews'), getFoods)
-  .post(addFood)
+  .post(protect, authorize('admin'), addFood)
 
 router.route('/:id')
   .get(getFood)
-  .put(updateFood)
-  .delete(deleteFood)
+  .put(protect, authorize('admin'), updateFood)
+  .delete(protect, authorize('admin'), deleteFood)
 
 module.exports = router;
