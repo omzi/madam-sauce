@@ -2,8 +2,8 @@ const router = require('express').Router();
 const { getFoods, getFood, addFood, updateFood, deleteFood, foodPhotoUpload } = require('../controllers/foods');
 
 const Food = require('../models/Food');
-const advancedResults = require('../middleware/advancedResults');
 
+const advancedResults = require('../middleware/advancedResults');
 const { protect, authorize } = require('../middleware/auth');
 
 router.route('/:id/photo')

@@ -11,6 +11,7 @@ const db = require('./config/db');
 // Load route files
 const foods = require('./routes/foods');
 const auth = require('./routes/auth');
+const users = require('./routes/users');
 
 // Load env variables
 dotenv.config({ path: './config/.env' })
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Mount routers
 app.use('/api/v1/foods', foods);
 app.use('/api/v1/auth', auth);
+app.use('/api/v1/users', users);
 
 app.use(errorHandler);
 
