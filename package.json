@@ -32,10 +32,12 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.2.0",
     "express-mongo-sanitize": "^2.0.0",
+    "helmet": "^4.1.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.9",
     "nodemailer": "^6.4.14",
-    "slugify": "^1.4.5"
+    "slugify": "^1.4.5",
+    "xss-clean": "^0.1.1"
   },
   "devDependencies": {
     "colors": "^1.4.0",

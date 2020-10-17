@@ -6,6 +6,8 @@ const colors = require('colors');
 const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
 const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+const xss = require('xss-clean');
 const errorHandler = require('./middleware/error');
 const db = require('./config/db');
 
@@ -28,8 +30,10 @@ app.use(cookieParser());
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
-app.use(fileUpload());
-app.use(mongoSanitize());
+app.use(fileUpload()); // File uploading
+app.use(mongoSanitize()); // Sanitize data
+app.use(helmet()); // Set security headers
+app.use(xss()); // Prevent XSS attacks
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Mount routers
