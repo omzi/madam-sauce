@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const colors = require('colors');
 const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
+const mongoSanitize = require('express-mongo-sanitize');
 const errorHandler = require('./middleware/error');
 const db = require('./config/db');
 
@@ -28,6 +29,7 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
 app.use(fileUpload());
+app.use(mongoSanitize());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Mount routers
