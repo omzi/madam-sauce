@@ -55,7 +55,7 @@ app.use((req, res, next) => {
 });
 
 // Dev logging middleware
-if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
+if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'))
 
 // Rate limit options
 const limiter = rateLimit({
