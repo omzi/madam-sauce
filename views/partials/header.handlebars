@@ -1,0 +1,50 @@
+<!--Header Start-->
+<header>
+  <div class="main-navigation">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 col-lg-3">
+            <a class="navbar-brand link" href="/">
+              <img src="/img/logo.png" alt="Madam Sauce logo">
+            </a>
+          </div>
+          <div class="col-6 col-lg-9 d-flex align-items-center justify-content-end">
+            <ul class="user-links">
+              <li class="header-shop-cart"><a href="/cart" class="position-relative link"><i
+                    class="la la-shopping-cart"></i><span class="badge cart-count">{{cartCount}}</span></a>
+              </li>
+              <li class="user-menu"><a class="la la-user link"><i
+                    class="far fa-user"></i><span><i class="la la-angle-down ml-1"></i></span></a>
+                <div class="menu-links link">
+                  <ul>
+                    {{#if user}}
+                    <li>
+                      <div class="overlay-link"></div>
+                      <a href="/dashboard"><i class="la la-user"></i>Dashboard</a>
+                    </li>
+                    <li>
+                      <div class="overlay-link"></div>
+                      <a href="/logout"><i class="la la-lock"></i>Logout</a>
+                    </li>
+                    {{else}}
+                    <li>
+                      <div class="overlay-link"></div>
+                      <a href="/login"><i class="la la-key"></i>Login</a>
+                    </li>
+                    <li>
+                      <div class="overlay-link"></div>
+                      <a href="/register"><i class="la la-arrow-right"></i>Register</a>
+                    </li>
+                    {{/if}}
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+<!--Header End-->

@@ -49,7 +49,7 @@ const FoodSchema = new mongoose.Schema({
 
 // Create food slug from the name
 FoodSchema.pre('save', function(next) {
-  this.slug = slugify(this.name, { lower: true, remove: /[*+~.()'"!:@]/g })
+  this.slug = slugify(this.name, { lower: true, remove: /[*+~\/\\.()'"!:@]/g })
   next();
 })
 

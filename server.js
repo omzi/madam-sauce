@@ -1,5 +1,10 @@
 const path = require('path');
 const express = require('express');
+const handlebars = require('express-handlebars');
+const methodOverride = require('method-override');
+const session = require('express-session');
+const flash = require('connect-flash');
+const { formatDistanceToNow } = require('date-fns')
 const dotenv = require('dotenv');
 const colors = require('colors');
 const fileUpload = require('express-fileupload');
@@ -14,6 +19,7 @@ const errorHandler = require('./middleware/error');
 const db = require('./config/db');
 
 // Load route files
+const home = require('./routes/home');
 const foods = require('./routes/foods');
 const auth = require('./routes/auth');
 const users = require('./routes/users');
@@ -27,7 +33,25 @@ db()
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Express session middleware
+app.use(session({
+  secret: 'secretsauce',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(flash());
+
+// Global variables
+app.use((req, res, next) => {
+  res.locals.successMessage = req.flash('successMessage');
+  res.locals.errorMessage = req.flash('errorMessage');
+  res.locals.error = req.flash('error');
+  res.locals.session = req.session;
+  next();
+});
 
 // Dev logging middleware
 if (process.env.NODE_ENV !== 'production') {
@@ -45,12 +69,56 @@ app.use(fileUpload()); // File uploading
 app.use(mongoSanitize()); // Sanitize data
 app.use(helmet()); // Set security headers
 app.use(xss()); // Prevent XSS attacks
-app.use(limiter); // Rate limiting
+app.use('/api/', limiter); // API rate limiting
 app.use(hpp()); // Prevent HTTP param pollution
 app.use(cors()); // Enabled CORS
+app.use(methodOverride('_method')); // Override HTTP methods
+
+// Handlebars middleware
+app.engine('handlebars', handlebars({
+  defaultLayout: 'main',
+  helpers: {
+    ifEquals: function(arg1, arg2, options) {
+      return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+    },
+    formatDate: value => {
+      const options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+      return new Intl.DateTimeFormat('en-US', options).format(value)
+    },
+    math: function(lvalue, operator, rvalue, options) {
+      lvalue = parseFloat(lvalue);
+      rvalue = parseFloat(rvalue);
+          
+      return {
+          "+": lvalue + rvalue,
+          "-": lvalue - rvalue,
+          "*": lvalue * rvalue,
+          "/": lvalue / rvalue,
+          "%": lvalue % rvalue
+      }[operator];
+    },
+    formatPrice: price => {
+      return price.toLocaleString()
+    },
+    formatDateToNow: date => {
+      return formatDistanceToNow(date, { addSuffix: true, includeSeconds: true })
+    }
+  }
+}))
+app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
+// Remove trailing slashes
+app.use((req, res, next) => {
+  if (req.path.substr(-1) == '/' && req.path.length > 1) {
+    const query = req.url.slice(req.path.length);
+    res.redirect(301, req.path.slice(0, -1) + query);
+  } else {
+    next();
+  }
+})
 
 // Mount routers
+app.use('/', home);
 app.use('/api/v1/foods', foods);
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/users', users);

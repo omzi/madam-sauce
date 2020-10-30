@@ -1,0 +1,78 @@
+	{{> header}}
+
+	<section class="secondary-pages-banner">
+		<div class="banner-content text-center">
+			<div class="heading-area">
+				<h4 class="heading">{{title}}</h4>
+				<div class="crumbs">
+					<nav aria-label="breadcrumb" class="breadcrumb-items">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
+							<li class="breadcrumb-item"><a href="/foods" class="link">Foods</a></li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+<!--Food Gallery Start-->
+<section class="food-gallery">
+  <div class="container">
+    <div class="row">
+      {{#each foods}}
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="food__photo">
+          <img src="uploads/{{photo}}" alt="{{name}}">
+          
+          <div class="food__action">
+            {{#if ../user.role}}
+              {{#ifEquals ../user.role 'user'}}
+              <button class="add-to-cart" data-id="{{_id}}" data-quantity="{{quantity}}" data-price="{{price}}" data-name="{{name}}">
+                <div class="default">Add to cart</div>
+                <div class="success">Added</div>
+                <div class="cart">
+                  <div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <div class="dots"></div>
+              </button>
+              {{/ifEquals}}
+
+              {{#ifEquals ../user.role 'admin'}}
+              <a href="/food/{{slug}}">
+                <button class="add-to-cart"><span>View Food</span></button>
+              </a>
+              {{/ifEquals}}
+            {{else}}
+            <a href="/login">
+              <button class="add-to-cart disabled">
+                <div class="default">Add to cart</div>
+              </button>
+            </a>
+            {{/if}}
+          </div>
+            <div class="food__details">
+              <a href="/food/{{slug}}">
+                <h3 class="truncate" title="{{name}}">{{name}}</h3>
+              </a>
+              {{# if averageRating}}
+              <div class="food__rating"><span>★</span> {{averageRating}}/10</div>
+              {{/if}}
+              <p><span class="food__tag">Price</span> <span class="food__price">₦{{price}}</span></p>
+            <div class="food__overview">
+              <p>{{description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+<!--Food Gallery End-->
+
+{{> footer}}

@@ -1,0 +1,103 @@
+{{> header}}
+
+<section class="secondary-pages-banner">
+  <div class="banner-content text-center">
+    <div class="heading-area">
+      <h4 class="heading">{{title}}</h4>
+      <div class="crumbs">
+        <nav aria-label="breadcrumb" class="breadcrumb-items">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
+            <li class="breadcrumb-item"><a href="" class="link">Shopping Cart</a></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cart-section">
+	{{#if cartItems}}
+	<div class="row">
+		<div class="col-12">
+			<div class="table-responsive shopping-cart">
+				<table class="table table-bordered">
+					<thead class="thead-dark">
+						<tr>
+							<th>Product Name</th>
+							<th>Price</th>
+							<th>Quantity</th>
+							<th>Sub Total</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each cartItems}}
+							<tr>
+								<td>
+									<div class="product-item d-flex align-items-center">
+										<div class="product-info">
+											<h4 class="product-title">{{itemName}}</h4>
+										</div>
+									</div>
+								</td>
+								<td>₦{{price}}</td>
+								<td class="quantity">{{quantity}}</td>
+								<td class="text-lg text-medium price">₦{{math price "*" quantity}}</td>
+								<td><button class="btn btn-sm btn-circle btn-danger cart-remove" data-id="{{itemId}}"><i class="la la-close"></i></button></td>
+							</tr>
+						{{/each}}
+					</tbody>
+					<tfoot>
+						<tr>
+							<td></td>
+							<td></td>
+							<td class="bold">Grand Total</td>
+							<td>₦<span class="bold cart-total">{{totalPrice}}</span></td>
+							<td></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+			<button class="btn btn-large rounded-pill main-btn checkout mb-4" style="float: right;">Checkout</button>
+		</div>
+
+
+		<!-- Checkout Modal -->
+		<div class="modal-overlay">
+			<div class="modal checkoutModal" style="max-height: 0; min-height: 250px;">
+				<div class="modal-content" style="height: 225px; border: none;">
+					<a class="close-modal checkoutModal">
+						<svg viewBox="0 0 20 20">
+							<path fill="#fff" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+						</svg>
+					</a>
+					<h4 class="text-white text-left" style="margin-top: -10px;">Enter Amount</h4>
+					<form action="/checkout" method="POST" autocomplete="off" style="margin-top: 20px; text-align: center;">
+						<input class="form-control" type="number" min="1" name="cashTendered" placeholder="Amount" required>
+						
+						<button type="submit" class="btn btn-large rounded-pill main-btn pay">Pay ₦</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{else}}
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<div class="emptyState emptyState--withImage">
+				<div class="emptyState__visual">
+					<img src="/img/logo-large.png" alt="...">
+				</div>
+				<h3 class="mt-4 text-capitalize">Your cart is empty</h3>
+				<div class="mt-4">Browse through our food to add items to your cart</div>
+				<div class="mt-4">
+					<a href="/foods" class="btn btn-large rounded-pill main-btn mb-2">Browse Foods</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</section>
+
+{{> footer}}
