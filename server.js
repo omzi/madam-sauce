@@ -6,7 +6,6 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const { formatDistanceToNow } = require('date-fns')
 const dotenv = require('dotenv');
-const morgan = require('morgan');
 const colors = require('colors');
 const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
@@ -55,7 +54,10 @@ app.use((req, res, next) => {
 });
 
 // Dev logging middleware
-if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'))
+if (process.env.NODE_ENV !== 'production') {
+  const morgan = require('morgan');
+  app.use(morgan('dev'))
+}
 
 // Rate limit options
 const limiter = rateLimit({
