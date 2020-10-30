@@ -5,8 +5,7 @@
     "description": "The most complete Oha Soup meal, just like your grandmas made them.",
     "price": 800,
     "quantity": 6,
-    "categories": ["soup", "chicken"],
-    "photo": "oha-soup-5d725a1b7b292f5f8ceff788.jpg"
+    "categories": ["soup", "chicken"]
   },
   {
     "_id": "5d713a66ec8f2b88b8f830b8",
@@ -14,8 +13,7 @@
     "description": "Want to warm your way to your in-laws’ hearts? Serve them this delicacy.",
     "price": 1200,
     "quantity": 10,
-    "categories": ["fish", "chicken", "soup"],
-    "photo": "ofe-nsala-5d713a66ec8f2b88b8f830b8.jpg"
+    "categories": ["fish", "chicken", "soup"]
   },
   {
     "_id": "5d725a037b292f5f8ceff787",
@@ -23,8 +21,7 @@
     "description": "Don’t let the name put you off this delicious soup. A well-prepared Bitterleaf Soup should not be bitter.",
     "price": 750,
     "quantity": 15,
-    "categories": ["soup"],
-    "photo": "bitterleaf-soup-ofe-onugbu-5d725a037b292f5f8ceff787.jpg"
+    "categories": ["soup"]
   },
   {
     "_id": "5f8a0487c5270a4fbc66090f",
@@ -32,8 +29,7 @@
     "description": "Peppered Turkey Wings is one of the best side dishes to Nigerian rice dish. Great for parties too",
     "price": 1350,
     "quantity": 14,
-    "categories": ["chicken"],
-    "photo": "peppered-turkey-wings-5f8a0487c5270a4fbc66090f.jpg"
+    "categories": ["chicken"]
   },
   {
     "_id": "5f88cbcec86f4b526cddb0b5",
@@ -41,8 +37,7 @@
     "description": "If you need a great evening or picnic snack, here you go.",
     "price": 900,
     "quantity": 17,
-    "categories": ["chicken"],
-    "photo": "barbecue-chicken-wings-5f88cbcec86f4b526cddb0b5.jpg"
+    "categories": ["chicken"]
   },
   {
     "_id": "5d713995b721c3bb38c1f5d0",
@@ -50,7 +45,6 @@
     "description": "The popping red spicy upgrade for the basic Grilled Chicken. A great addition to your meals!",
     "price": 900,
     "quantity": 13,
-    "categories": ["chicken"],
-    "photo": "peppered-chicken-5d713995b721c3bb38c1f5d0.jpg"
+    "categories": ["chicken"]
   }
 ]
