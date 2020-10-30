@@ -8,7 +8,10 @@ const connectToDatabase = async () => {
     useUnifiedTopology: true
   })
 
-  console.log(`✬ | Mongoose connected successfully to ${connection.host}`.cyan.bold)
+  if (process.env.NODE_ENV !== 'production') {
+    const colors = require('colors');
+    console.log(`✬ | Mongoose connected successfully to ${connection.host}`.cyan.bold)
+  }
 }
 
 module.exports = connectToDatabase;

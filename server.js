@@ -6,7 +6,6 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const { formatDistanceToNow } = require('date-fns')
 const dotenv = require('dotenv');
-const colors = require('colors');
 const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -129,11 +128,17 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5050
 
 const server = app.listen(PORT, () => {
-  console.log(':>>'.green.bold, `Server running in ${process.env.NODE_ENV} mode on port`.yellow.bold, `${PORT}`.blue.bold)
+  if (process.env.NODE_ENV !== 'production') {
+    const colors = require('colors');
+    console.log(':>>'.green.bold, `Server running in ${process.env.NODE_ENV} mode on port`.yellow.bold, `${PORT}`.blue.bold)
+  }
 })
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', err => {
-  console.log(`✖ | Error: ${err.message}`.red.bold)
+  if (process.env.NODE_ENV !== 'production') {
+    const colors = require('colors');
+    console.log(`✖ | Error: ${err.message}`.red.bold)
+  }
   server.close(() => process.exit(1))
 })
