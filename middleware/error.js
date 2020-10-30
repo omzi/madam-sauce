@@ -2,8 +2,10 @@ const ErrorResponse = require("../utils/errorResponse");
 
 const errorHandler = (error, req, res, next) => {
   // Log to console for dev
-  console.log(`✖ | Error: ${error.name}`.red.bold)
-  console.log(`Details: ${error.stack}`.red)
+  if (process.env.NODE_ENV !== 'production') {
+    console.log(`✖ | Error: ${error.name}`.red.bold)
+    console.log(`Details: ${error.stack}`.red)
+  }
 
   // Mongoose bad ObjectId
   if (error.name === 'CastError') {
