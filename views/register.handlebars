@@ -1,0 +1,34 @@
+<section class="p-lg-0 login-sec">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-6 order-2 position-relative d-flex align-items-center bg-1">
+        <div class="login-content text-center text-lg-left">
+          
+          <div class="title d-inline-block mb-4">
+            <h3 class="mb-3 heading">Never cook again! We really mean that</h3>
+            <p class="text">Say goodbye to junk food & hello to super meals🤩!</p>
+          </div>
+          
+          <form action="/register" method="POST" autocomplete="off">
+            <div class="row">
+              <div class="col-12">
+                <input class="form-control" type="text" name="name" value="{{name}}" placeholder="Full Name" required></div>
+              <div class="col-12 col-lg-6">
+                <input class="form-control" type="text" name="email" value="{{email}}" placeholder="E-mail Address" required></div>
+              <div class="col-12 col-lg-6">
+                <input class="form-control" type="password" name="password" value="{{password}}" placeholder="Password" required></div>
+              </div>
+            <div class="form-button">
+              <button id="submit" type="submit" class="btn btn-large rounded-pill main-btn">Register</button>
+              <a href="/login" class="text">Have an account? Login!</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 order-1 p-0 login-side-background"
+        style="background-image: url('img/img-side-menu.jpg');">
+      </div>
+    </div>
+
+  </div>
+</section>

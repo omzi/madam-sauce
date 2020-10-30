@@ -1,0 +1,238 @@
+	{{> header}}
+	
+	<section class="secondary-pages-banner bg-1" id="main-banner">
+		<div class="banner-content text-center">
+			<div class="heading-area">
+				<h4 class="heading">{{title}}</h4>
+				<div class="crumbs">
+					<nav aria-label="breadcrumb" class="breadcrumb-items">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
+							<li class="breadcrumb-item"><a href="/foods" class="link">Foods</a></li>
+							<li class="breadcrumb-item"><a href="/food/{{food.slug}}" class="link">{{title}}</a></li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Food Detail Start -->
+	<section class="food-detail">
+		<div class="row">
+			<div class="col-12 col-lg-6 image-half">
+				<img src="/uploads/{{food.photo}}" alt="{{title}} ~ Madam Sauce" class="food-image">
+			</div>
+			<p>{{{food.user}}}</p>
+			<div class="col-12 col-lg-6 content-half">
+				<h3 class="food-title">{{title}}</h3>
+				<h4 class="food-price">₦{{food.price}}</h4>
+				<div class="food-description">
+					<p>{{food.description}}</p>
+				</div>
+				{{#if user.role}}
+					{{#ifEquals user.role 'user'}}
+					<button class="add-to-cart" data-id="{{food._id}}" data-quantity="{{food.quantity}}" data-price="{{food.price}}" data-name="{{food.name}}">
+						<div class="default">Add to cart</div>
+						<div class="success">Added</div>
+						<div class="cart">
+							<div>
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+						<div class="dots"></div>
+					</button>
+					{{/ifEquals}}
+
+					{{#ifEquals user.role 'admin'}}
+						<a href="/dashboard/foods#{{food.slug}}">
+							<button class="add-to-cart"><span><i class="la la-pen mr-2"></i>Edit Food</span></button>
+						</a>
+					{{/ifEquals}}
+				{{else}}
+					<a href="/login">
+						<button class="add-to-cart disabled">
+							<div class="default">Add to cart</div>
+						</button>
+					</a>
+				{{/if}}
+			</div>
+		</div>
+	</section>
+	<!-- Food Detail End -->
+
+	<!-- Reviews Start -->
+	<section class="review-block">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					{{#if hasReviewed.user}}
+						<button class="btn btn-large rounded-pill main-btn review-edit" data-review-id="{{hasReviewed._id}}" data-review-title="{{hasReviewed.title}}" data-review-content="{{hasReviewed.content}}" data-review-rating="{{hasReviewed.rating}}">Edit Review</button>
+					{{else if user}}
+						<div class="text-center">
+							<h3 class="text-black" style="text-shadow: 0 0 #000; line-height: 34px;">Like the food or have a complaint? Leave a review.</h3>
+							<button class="btn btn-large rounded-pill main-btn mt-4 mb-4 add-review">Add Review</button>
+						</div>
+
+						<!-- Edit Review Modal -->
+						<div class="modal-overlay">
+							<div class="modal reviewAddModal">
+								<div class="modal-content">
+									<a class="close-modal reviewAddModal">
+										<svg viewBox="0 0 20 20">
+											<path fill="#fff" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+										</svg>
+									</a>
+									<h4 class="text-white text-left" style="margin-top: -10px;">Add Review</h4>
+									<form action="/food/{{food.slug}}/{{food._id}}/reviews" method="POST" autocomplete="off" id="reviewAddForm" style="margin-top: 20px; text-align: center;">
+										<input class="form-control" type="text" name="title" placeholder="Title" required>
+										<textarea class="form-control" name="content" rows="4" placeholder="Content" required></textarea>
+										<div class="rating-box">
+											<input class="sr-only" id="star10" name="rating" type="radio" value="10" required>
+											<label class="rating-star" for="star10">10</label>
+
+											<input class="sr-only" id="star9" name="rating" type="radio" value="9" required>
+											<label class="rating-star" for="star9">9</label>
+
+											<input class="sr-only" id="star8" name="rating" type="radio" value="8" required>
+											<label class="rating-star" for="star8">8</label>
+
+											<input class="sr-only" id="star7" name="rating" type="radio" value="7" required>
+											<label class="rating-star" for="star7">7</label>
+
+											<input class="sr-only" id="star6" name="rating" type="radio" value="6" required>
+											<label class="rating-star" for="star6">6</label>
+
+											<input class="sr-only" id="star5" name="rating" type="radio" value="5" required>
+											<label class="rating-star" for="star5">5</label>
+											
+											<input class="sr-only" id="star4" name="rating" type="radio"value="4" required>
+											<label class="rating-star" for="star4">4</label>
+											
+											<input class="sr-only" id="star3" name="rating" type="radio" value="3" required>
+											<label class="rating-star" for="star3">3</label>
+											
+											<input class="sr-only" id="star2" name="rating" type="radio" value="2" required>
+											<label class="rating-star" for="star2">2</label>
+											
+											<input class="sr-only" id="star1" name="rating" type="radio" value="1" required>
+											<label class="rating-star" for="star1">1</label>
+
+											<span class="rating-total"></span>
+										</div>
+										
+										<button type="submit" class="btn btn-large rounded-pill main-btn">Add Review</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					{{else}}
+						<a href="/login" class="btn btn-large rounded-pill main-btn">Add Review</a>
+					{{/if}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 offset-md-4">
+					<div class="text-center p-4 mb-5">
+						<h2 class="average-rating"><i class="la la-star"></i> {{food.averageRating}}</h2>
+					</div>
+				</div>
+			</div>
+		
+			<div class="row">
+				<!-- Edit Review Modal -->
+				<div class="modal-overlay">
+					<div class="modal reviewEditModal">
+						<div class="modal-content">
+							<a class="close-modal reviewEditModal">
+								<svg viewBox="0 0 20 20">
+									<path fill="#fff" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+								</svg>
+							</a>
+							<h4 class="text-white" style="margin-top: -10px;">Edit Review</h4>
+							<form action="/dashboard/reviews/id" method="POST" autocomplete="off" id="reviewEditForm" style="margin-top: 20px; text-align: center;">
+								<input type="hidden" name="_method" value="PUT">
+								<input class="form-control" type="text" name="title" edit placeholder="Title" required>
+								<textarea class="form-control" name="content" edit rows="4" placeholder="Content" required></textarea>
+								<div class="rating-box">
+									<input class="sr-only" id="star10" name="rating" edit type="radio" value="10" required>
+									<label class="rating-star" for="star10">10</label>
+
+									<input class="sr-only" id="star9" name="rating" edit type="radio" value="9" required>
+									<label class="rating-star" for="star9">9</label>
+
+									<input class="sr-only" id="star8" name="rating" edit type="radio" value="8" required>
+									<label class="rating-star" for="star8">8</label>
+
+									<input class="sr-only" id="star7" name="rating" edit type="radio" value="7" required>
+									<label class="rating-star" for="star7">7</label>
+
+									<input class="sr-only" id="star6" name="rating" edit type="radio" value="6" required>
+									<label class="rating-star" for="star6">6</label>
+
+									<input class="sr-only" id="star5" name="rating" edit type="radio" value="5" required>
+									<label class="rating-star" for="star5">5</label>
+									
+									<input class="sr-only" id="star4" name="rating" edit type="radio"value="4" required>
+									<label class="rating-star" for="star4">4</label>
+									
+									<input class="sr-only" id="star3" name="rating" edit type="radio" value="3" required>
+									<label class="rating-star" for="star3">3</label>
+									
+									<input class="sr-only" id="star2" name="rating" edit type="radio" value="2" required>
+									<label class="rating-star" for="star2">2</label>
+									
+									<input class="sr-only" id="star1" name="rating" edit type="radio" value="1" required>
+									<label class="rating-star" for="star1">1</label>
+
+									<span class="rating-total"></span>
+								</div>
+								
+								<button type="submit" class="btn btn-large rounded-pill main-btn">Update Review</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				{{#each reviews as |review i|}}
+				<div class="col-md-4">
+					<div class="review-box alt-hover">
+						{{#if ../user}}
+							{{#ifEquals ../user.role 'admin'}}
+								<span class="la la-pen review-edit" data-review-id="{{_id}}" data-review-title="{{title}}" data-review-content="{{content}}" data-review-rating="{{rating}}"></span>
+							{{/ifEquals}}
+						{{/if}}
+						<div class="avatar-box">
+							<img src="/img/logo-large.png">
+						</div>
+						<p>{{review.content}}</p>
+						<div class="name">{{review.user.name}}</div>
+						<div class="rating">★ {{review.rating}}/10</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</section>
+
+	<style>
+		.average-rating {
+			background-color: #fc2547;
+			color: #fff;
+			font-size: 65px;
+			display: inline-block;
+			padding: 15px;
+			border-radius: 6px;
+			text-shadow: 2px 4px 6px rgb(0 0 0 / 0.8), 2px 8px 4px rgb(0 0 0 / 50%);
+			box-shadow: 0 6px 10px rgba(0,0,0,0.25), 0 8px 8px rgba(0,0,0,0.22)
+		}
+
+		.total-ratings {
+			margin-top: 20px;
+			font-size: 16px;
+			color: #000;
+			text-shadow: 0 0 #000;
+		}
+	</style>
+	{{> footer}}

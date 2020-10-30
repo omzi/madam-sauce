@@ -1,0 +1,111 @@
+{{> header}}
+
+<!--Hero Banner Start-->
+<section class="main-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="text-logo">Madam Sauce</h3>
+        <h4 class="heading">Delicious food at your door step.</h4>
+        <p>Never cook again! We really mean that. You're only twenty minutes away from your delicious 
+          and super healthy foods delivered right to your door step. We strive to ensure that you're 100% happy.</p>
+      </div>
+    </div>
+  </div>
+  <a href="#food-section">
+    <div class="mouse"></div>
+  </a>
+</section>
+<!--Hero Banner End-->
+
+<!--Food Gallery Start-->
+<section class="food-section" id="food-section">
+  <div class="text-center">
+    <h4 class="heading">Our Foods</h4>
+  </div>
+
+  <div class="food-outer-container">
+    <div class="food-container">
+
+      {{#each foods}}
+      <div class="food-card">
+        <a href="/food/{{slug}}">
+          <div class="food-image">
+            <img src="uploads/{{photo}}" alt="{{name}}">
+          </div>
+        </a>
+        <div class="food-content">
+          <div class="food-content-inner">
+            <h2>{{name}}</h2>
+            <p>Price: <span class="price">₦{{price}}</span></p>
+            {{#if ../user.role}}
+              {{#ifEquals ../user.role 'user'}}
+              <button class="add-to-cart" data-id="{{_id}}" data-quantity="{{quantity}}" data-price="{{price}}" data-name="{{name}}">
+                <div class="default">Add to cart</div>
+                <div class="success">Added</div>
+                <div class="cart">
+                  <div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <div class="dots"></div>
+              </button>
+              {{/ifEquals}}
+
+              {{#ifEquals ../user.role 'admin'}}
+              <a href="/food/{{slug}}">
+                <button class="add-to-cart"><span>View Food</span></button>
+              </a>
+              {{/ifEquals}}
+            {{else}}
+            <a href="/login">
+              <button class="add-to-cart disabled">
+                <div class="default">Add to cart</div>
+              </button>
+            </a>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      {{/each}}
+      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3 col-lg-4 offset-lg-4 text-center">
+      <a href="/foods" class="btn btn-black rounded-pill">
+        View Available Foods
+      </a>
+    </div>
+  </div>
+</section>
+<!--Food Gallery End-->
+
+
+<section class="review-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h4 class="heading">Reviews</h4>
+      </div>
+
+      {{#each reviews}}
+      <div class="col-md-4">
+        <div class="review-box">
+          <div class="avatar-box">
+            <img src="/img/logo-large.png">
+          </div>
+          <p>{{content}}</p>
+          <div class="name">{{user.name}}</div>
+          <div class="rating">★ {{rating}}/10</div>
+        </div>
+      </div>
+      {{/each}}
+      
+    </div>
+  </div>
+</section>
+
+{{> footer}}
