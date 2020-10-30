@@ -18,4 +18,33 @@
 
 </div>
 <br>
-<h3 align="center">DOCUMENTATION COMING SOON!</h3>
+
+## Stack Overview
+
+### Front-End
+
+- HTML + CSS + JavaScript
+- Bootstrap
+
+### Back-End
+
+- [NodeJS](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [Express Handlebars](https://www.npmjs.com/package/express-handlebars) (for tempating)
+- [MongoDB](https://www.mongodb.com/)
+
+
+## Roadmap
+
+- [X] Landing page
+- [x] Show top foods and reviews on homepage
+- [X] Login with email address
+- [X] After logout forward to homepage
+- [x] Deploy to Heroku
+- [ ] Add featured foods
+- [ ] Users' CRUD functionality for admin(s) from dashboard
+- [ ] Create custom user avatars based on ID
+- [ ] 'Change Password' feature
+- [ ] 'Delete Account' feature
+
+<h3 align="center">FULL DOCUMENTATION COMING SOON!</h3>
