@@ -241,34 +241,42 @@
                   </tbody>
               </table> --}}
 
+              {{if orders}}
               <div class="table-responsive">
-                    <table class="table table-striped table-dark table-bordered">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Order ID</th>
-                                {{#ifEquals user.role 'admin'}}<th>Customer</th>{{/ifEquals}}
-                                <th>Status</th>
-                                <th>Total</th>
-                                <th>Cash Tendered</th>
-                                <th>Created</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-body">
-                          {{#each orders}}
-                            <tr>
-                                <td>{{math @index "+" 1}}</td>
-                                <td>{{orderId}}</td>
-                                {{#ifEquals ../user.role 'admin'}}<td>{{user.name}}</td>{{/ifEquals}}
-                                <td><span class="badge badge-success">Delivered</span></td>
-                                <td>₦{{formatPrice totalPrice}}</td>
-                                <td>₦{{formatPrice cashTendered}}</td>
-                                <td class="text-capitalize">{{formatDateToNow createdAt}}</td>
-                            </tr>
-                          {{/each}}
-                        </tbody>
-                    </table>
-                </div>
+                <table class="table table-striped table-dark table-bordered">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Order ID</th>
+                      {{#ifEquals user.role 'admin'}}<th>Customer</th>{{/ifEquals}}
+                      <th>Status</th>
+                      <th>Total</th>
+                      <th>Cash Tendered</th>
+                      <th>Created</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    {{#each orders}}
+                    <tr>
+                      <td>{{math @index "+" 1}}</td>
+                      <td>{{orderId}}</td>
+                      {{#ifEquals ../user.role 'admin'}}<td>{{user.name}}</td>{{/ifEquals}}
+                      <td><span class="badge badge-success">Delivered</span></td>
+                      <td>₦{{formatPrice totalPrice}}</td>
+                      <td>₦{{formatPrice cashTendered}}</td>
+                      <td class="text-capitalize">{{formatDateToNow createdAt}}</td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+              {{else}}
+              <div class="text-center padding-top padding-bottom">
+                <h4 class="text-white">No Orders Yet</h4>
+                <p class="mt-4" style="color: #fc2547; text-shadow: 0 0 #fc2547;">Browse through our foods to add any food of your choice available to cart & checkout</p>
+                <a href="/foods" class="btn btn-large rounded-pill main-btn">Browse Foods</a>
+              </div>
+              {{/if}}
 							</div>
               {{/ifEquals}}
                 
