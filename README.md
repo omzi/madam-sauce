@@ -12,7 +12,6 @@
 ![](https://img.shields.io/github/repo-size/omzi/madam-sauce)
 ![](https://img.shields.io/github/issues/omzi/madam-sauce.svg)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/omzi/madam-sauce/issues)
-[![HitCount](http://hits.dwyl.com/omzi/madam-sauce.svg)](http://hits.dwyl.com/omzi/madam-sauce)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![](https://img.shields.io/twitter/follow/o_obioha.svg?style=social&label=@o_obioha)
 
@@ -30,7 +29,7 @@
 
 - [NodeJS](https://nodejs.org/en/)
 - [Express](https://expressjs.com/)
-- [Express Handlebars](https://www.npmjs.com/package/express-handlebars) (for tempating)
+- [Express Handlebars](https://www.npmjs.com/package/express-handlebars) (for templating)
 - [MongoDB](https://www.mongodb.com/)
 
 
