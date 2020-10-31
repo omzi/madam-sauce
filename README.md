@@ -34,6 +34,9 @@
 - [MongoDB](https://www.mongodb.com/)
 
 
+## API Documentation
+Here's the link to the [documentation](https://documenter.getpostman.com/view/12425523/TVYKaGsU/).
+
 ## Roadmap
 
 - [X] Landing page
