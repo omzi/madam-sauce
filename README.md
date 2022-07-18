@@ -1,3 +1,8 @@
+## 📌 Project Status: ARCHIVED
+> **Warning**: *This project was my first NodeJS web app. As you might expect, it contains TONS of "non-best" practices. I was in a rush to deliver a task during an internship. Use code/structure from this repo at your sole discretion.*
+-----
+
+<br>
 <a href="https://madam-sauce.herokuapp.com/" target="_blank"><p align="center">
   <img src="public/img/logo-large.png" alt="Madam Sauce logo">
 </p></a>
@@ -13,7 +18,7 @@
 ![](https://img.shields.io/github/issues/omzi/madam-sauce.svg)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/omzi/madam-sauce/issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![](https://img.shields.io/twitter/follow/o_obioha.svg?style=social&label=@o_obioha)
+![](https://img.shields.io/twitter/follow/0xOmzi.svg?style=social&label=@0xOmzi)
 
 </div>
 <br>
@@ -35,18 +40,3 @@
 
 ## API Documentation
 Here's the link to the [documentation](https://documenter.getpostman.com/view/12425523/TVYKaGsU/).
-
-## Roadmap
-
-- [X] Landing page
-- [x] Show top foods and reviews on homepage
-- [X] Login with email address
-- [X] After logout forward to homepage
-- [x] Deploy to Heroku
-- [ ] Add featured foods
-- [ ] Users' CRUD functionality for admin(s) from dashboard
-- [ ] Create custom user avatars based on ID
-- [ ] 'Change Password' feature
-- [ ] 'Delete Account' feature
-
-<h3 align="center">FULL DOCUMENTATION COMING SOON!</h3>
