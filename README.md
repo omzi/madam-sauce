@@ -1,5 +1,5 @@
 ## 📌 Project Status: ARCHIVED
-> **Warning**: *This project was my first NodeJS web app. As you might expect, it contains TONS of "non-best" practices. I was in a rush to deliver a task during an internship. Use code/structure from this repo at your sole discretion.*
+> **Warning**: *This project was my first NodeJS web app. As you might expect, it contains TONS of "non-best" practices. I was in a rush to deliver a task during an internship. Use of code/structure from this repo is at your sole discretion.*
 -----
 
 <br>
